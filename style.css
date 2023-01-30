@@ -1,11 +1,53 @@
+body { 
+    display: flex;
+    justify-content: center;
+    height: 900px;
+    align-items: center;
+}
+
 .container {
-    background-color: grey;
+    height: 500px;
+    width: 400px;
+    padding: 10px;
+    padding-top: 20px;
+    outline: 2px;
+    outline-style: solid;
+    outline-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: gray;
+    align-items: center;
+    border-radius: 15px;
 }
 
 .display {
-    background-color: aqua;
+    background-color: rgb(229, 229, 229);
+    height: 120px;
+    width: 350px;
+    outline: 2px;
+    outline-style: solid;
+    outline-color: black;
+    border-radius: 5px;
 }
 
 .buttons-container {
-    background-color: red;
+    margin-top: 25px;
+    background-color: gray;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 10px;
 }
+
+button {
+    outline: 1px;
+    outline-style: solid;
+    outline-color: black;
+    width: 70px;
+    height: 60px;
+    margin: 10px;
+    background-color: lightgray;
+    border-radius: 2px;
+}
+
