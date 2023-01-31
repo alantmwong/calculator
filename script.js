@@ -28,6 +28,12 @@ operate = (operator, firstNumber, secondNumber) => {
 
 const buttons = document.querySelectorAll("button");
 const displayContent = document.querySelector(".display-content");
-buttons.forEach(button => button.addEventListener("click", (e) => {
-    displayContent.textContent += button.textContent;
-}));
+
+updateDisplay = (e) => {
+    if (e.target.textContent == "AC") {
+        displayContent.textContent = "";
+        return;
+    }
+    displayContent.textContent += e.target.textContent;
+}
+buttons.forEach(button => button.addEventListener("click", updateDisplay));
