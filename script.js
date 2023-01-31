@@ -31,9 +31,13 @@ const displayContent = document.querySelector(".display-content");
 
 updateDisplay = (e) => {
     if (e.target.textContent == "AC") {
-        displayContent.textContent = "";
+        displayContent.textContent = "0";
         return;
     }
-    displayContent.textContent += e.target.textContent;
+
+    if (e.target.textContent > 0) {
+        displayContent.textContent = "";
+        displayContent.textContent += e.target.textContent;
+    }
 }
 buttons.forEach(button => button.addEventListener("click", updateDisplay));
