@@ -26,8 +26,8 @@ operate = (operator, firstNumber, secondNumber) => {
     }
 };
 
-const button = document.querySelector("button");
-
-button.addEventListener("click", (e) =>{
-    console.log(e);
-})
+const buttons = document.querySelectorAll("button");
+const displayContent = document.querySelector(".display-content");
+buttons.forEach(button => button.addEventListener("click", (e) => {
+    displayContent.textContent += button.textContent;
+}));
