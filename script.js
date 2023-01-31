@@ -30,14 +30,27 @@ const buttons = document.querySelectorAll("button");
 const displayContent = document.querySelector(".display-content");
 
 updateDisplay = (e) => {
-    if (e.target.textContent == "AC") {
-        displayContent.textContent = "0";
-        return;
-    }
-
     if (e.target.textContent > 0) {
-        displayContent.textContent = "";
+        if (displayContent.textContent == 0) {
+            displayContent.textContent = "";
+            displayContent.textContent = e.target.textContent;
+            return;
+        }
         displayContent.textContent += e.target.textContent;
     }
-}
-buttons.forEach(button => button.addEventListener("click", updateDisplay));
+    
+    switch (e.target.textContent) {
+        case "AC": 
+            displayContent.textContent = "";
+            displayContent.textContent = 0;
+            break;
+        
+    }
+
+};
+
+// buttons.forEach(button => button.addEventListener("click", updateDisplay));
+
+buttons.forEach(button => button.addEventListener("click", (e) => {
+    console.log(e.target.textContent);
+}));
