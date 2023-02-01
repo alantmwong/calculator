@@ -1,3 +1,7 @@
+
+const buttons = document.querySelectorAll("button");
+const displayContent = document.querySelector(".display-content");
+
 add = (firstNumber, secondNumber) => {
     return firstNumber + secondNumber;
 };
@@ -26,10 +30,8 @@ operate = (operator, firstNumber, secondNumber) => {
     }
 };
 
-const buttons = document.querySelectorAll("button");
-const displayContent = document.querySelector(".display-content");
-
-updateDisplay = (e) => {
+updateNumberInDisplay = (e) => {
+    
     if (e.target.textContent > 0) {
         if (displayContent.textContent == 0) {
             displayContent.textContent = "";
@@ -39,6 +41,9 @@ updateDisplay = (e) => {
         displayContent.textContent += e.target.textContent;
     }
     
+};
+
+deleteInDisplay = (e) => {
     switch (e.target.textContent) {
         
         case "AC": 
@@ -56,22 +61,29 @@ updateDisplay = (e) => {
             }
             break;
         
-        case "+":
-            calculate("+", parseInt(displayContent.textContent));
-            break;
     }
+}; 
+
+calculate = (operator, firstNumber, e) => {
+    while (updateDisplay(e) != "=") {
+        updateDisplay(e);
+    } 
+    let secondNumber = displayContent.textContent;
+    operator(operatorPlus, firstNumber, secondNumber);
+
+}
+updateDisplay = (e) => {
+    
+    updateNumberInDisplay(e); 
+
+    deleteInDisplay(e);
+
+
+    //    case "+":
+    //        calculate("+", parseInt(displayContent.textContent), e);
+    //        break;
+    
 
 };
 
-calculate = (operator, firstNumber) => {
-    
-}
-
-
 buttons.forEach(button => button.addEventListener("click", updateDisplay));
-
-/* buttons.forEach(button => button.addEventListener("click", (e) => {
-    console.log(e.target.textContent);
-}));
-
-*/
