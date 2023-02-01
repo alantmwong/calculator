@@ -45,8 +45,13 @@ updateDisplay = (e) => {
             displayContent.textContent = 0;
             break;
         case "DELETE":
-            displayContent.textContent = 
-            displayContent.textContent.substring(0, displayContent.textContent.length - 1);
+            if (displayContent.textContent.substring.length > 1) {
+                displayContent.textContent = displayContent.textContent.substring(
+                                        0, displayContent.textContent.length - 1);
+            }
+            if (displayContent.textContent.length == '') {
+                displayContent.textContent = 0;
+            }
         
     }
 
