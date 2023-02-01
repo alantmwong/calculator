@@ -1,7 +1,14 @@
+/* Calculator project 
+Author: Alan Wong
+Date: 1/2/2023
 
+*/
+
+// Setting up event listeners 
 const buttons = document.querySelectorAll("button");
 const displayContent = document.querySelector(".display-content");
 
+// Basic operator functions 
 add = (firstNumber, secondNumber) => {
     return firstNumber + secondNumber;
 };
@@ -18,6 +25,8 @@ divide = (firstNumber, secondNumber) => {
     return firstNumber / secondNumber;
 };
 
+// Operate links the basic operator functions to perform a calculation
+// with any operator. 
 operate = (operator, firstNumber, secondNumber) => {
     if (operator == "+") {
         return add(firstNumber, secondNumber);
@@ -30,6 +39,8 @@ operate = (operator, firstNumber, secondNumber) => {
     }
 };
 
+// Whenever a number is pressed, it will add the number to the display - i.e. 
+// displayContent. 
 updateNumberInDisplay = (e) => {
     
     if (e.target.textContent > 0) {
@@ -43,6 +54,8 @@ updateNumberInDisplay = (e) => {
     
 };
 
+// When the AC button is pressed, this function deletes the entire displayContent
+// when DELETE is pressed, the function deletes the end character of displayContent
 deleteInDisplay = (e) => {
     switch (e.target.textContent) {
         
@@ -64,25 +77,21 @@ deleteInDisplay = (e) => {
     }
 }; 
 
-calculate = (operator, firstNumber, e) => {
-    while (updateDisplay(e) != "=") {
-        updateDisplay(e);
-    } 
-    let secondNumber = displayContent.textContent;
-    operator(operatorPlus, firstNumber, secondNumber);
+// 
+performOperatorCalc = (e) => {
+    switch (e.target.textContent) {
+        case "+":
+            let firstInt = displayContent.textContent;
+            break;
+    }
 
 }
+
 updateDisplay = (e) => {
     
     updateNumberInDisplay(e); 
-
     deleteInDisplay(e);
-
-
-    //    case "+":
-    //        calculate("+", parseInt(displayContent.textContent), e);
-    //        break;
-    
+    performOperatorCalc(e);
 
 };
 
