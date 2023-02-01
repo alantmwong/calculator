@@ -44,13 +44,18 @@ updateDisplay = (e) => {
             displayContent.textContent = "";
             displayContent.textContent = 0;
             break;
+        case "DELETE":
+            displayContent.textContent = 
+            displayContent.textContent.substring(0, displayContent.textContent.length - 1);
         
     }
 
 };
 
-// buttons.forEach(button => button.addEventListener("click", updateDisplay));
+buttons.forEach(button => button.addEventListener("click", updateDisplay));
 
-buttons.forEach(button => button.addEventListener("click", (e) => {
+/* buttons.forEach(button => button.addEventListener("click", (e) => {
     console.log(e.target.textContent);
 }));
+
+*/
