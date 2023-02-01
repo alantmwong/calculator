@@ -40,10 +40,12 @@ updateDisplay = (e) => {
     }
     
     switch (e.target.textContent) {
+        
         case "AC": 
             displayContent.textContent = "";
             displayContent.textContent = 0;
             break;
+
         case "DELETE":
             if (displayContent.textContent.substring.length > 1) {
                 displayContent.textContent = displayContent.textContent.substring(
@@ -52,10 +54,19 @@ updateDisplay = (e) => {
             if (displayContent.textContent.length == '') {
                 displayContent.textContent = 0;
             }
+            break;
         
+        case "+":
+            calculate("+", parseInt(displayContent.textContent));
+            break;
     }
 
 };
+
+calculate = (operator, firstNumber) => {
+    
+}
+
 
 buttons.forEach(button => button.addEventListener("click", updateDisplay));
 
