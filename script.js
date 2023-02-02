@@ -82,6 +82,7 @@ performOperatorCalc = (e) => {
     switch (e.target.textContent) {
         case "+":
             let firstInt = displayContent.textContent;
+            console.log(firstInt);
             break;
     }
 
