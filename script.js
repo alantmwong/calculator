@@ -77,13 +77,23 @@ deleteInDisplay = (e) => {
     }
 }; 
 
-// 
+// Pseudocode: 
+// 1. When the plus operator is clicked, save the integer in the display
+// 2. If the next button/s that are clicked are numbers, delete the old display number and show the new number
+// 3. When the equals button is clicked, use the "+" operator with the two numbers 
+// to perform the calculation, then set the new display number equal to the output of operate(). 
+
 performOperatorCalc = (e) => {
     switch (e.target.textContent) {
         case "+":
             let firstInt = displayContent.textContent;
+            let operator = "+";
             console.log(firstInt);
+            displayContent.textContent = 0;
             break;
+        case "=": 
+            let answer = operate(operator, firstInt, parseInt(displayContent.textContent));
+            displayContent.textContent = answer;
     }
 
 }
