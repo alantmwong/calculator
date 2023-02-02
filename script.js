@@ -87,12 +87,12 @@ performOperatorCalc = (e) => {
     switch (e.target.textContent) {
         case "+":
             let firstInt = displayContent.textContent;
-            let operator = "+";
             console.log(firstInt);
             displayContent.textContent = 0;
             break;
         case "=": 
             let answer = operate(operator, firstInt, parseInt(displayContent.textContent));
+            console.log(answer);
             displayContent.textContent = answer;
     }
 
