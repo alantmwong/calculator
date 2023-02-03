@@ -83,15 +83,18 @@ deleteInDisplay = (e) => {
 // 3. When the equals button is clicked, use the "+" operator with the two numbers 
 // to perform the calculation, then set the new display number equal to the output of operate(). 
 
+let calcVar = {};
+
 performOperatorCalc = (e) => {
     switch (e.target.textContent) {
         case "+":
-            let firstInt = displayContent.textContent;
-            console.log(firstInt);
+            calcVar.firstInt = displayContent.textContent;
+            calcVar.operator = "+";
             displayContent.textContent = 0;
             break;
         case "=": 
-            let answer = operate(operator, firstInt, parseInt(displayContent.textContent));
+            let answer = operate(calcVar.operator, parseInt(calcVar.firstInt), 
+                                parseInt(displayContent.textContent));
             console.log(answer);
             displayContent.textContent = answer;
     }
