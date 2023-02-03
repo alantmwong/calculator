@@ -30,11 +30,11 @@ divide = (firstNumber, secondNumber) => {
 operate = (operator, firstNumber, secondNumber) => {
     if (operator == "+") {
         return add(firstNumber, secondNumber);
-    } else if (operator == "-") {
+    } else if (operator == "−") {
         return subtract(firstNumber, secondNumber);
-    } else if (operator == "*") {
+    } else if (operator == "×") {
         return multiply(firstNumber, secondNumber);
-    } else if (operator == "/") {
+    } else if (operator == "÷") {
         return divide(firstNumber, secondNumber);
     }
 };
@@ -88,8 +88,11 @@ let calcVar = {};
 performOperatorCalc = (e) => {
     switch (e.target.textContent) {
         case "+":
+        case "×":
+        case "−":
+        case "÷":
             calcVar.firstInt = displayContent.textContent;
-            calcVar.operator = "+";
+            calcVar.operator = e.target.textContent;
             displayContent.textContent = 0;
             break;
         case "=": 
