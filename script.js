@@ -83,6 +83,13 @@ deleteInDisplay = (e) => {
 // 3. When the equals button is clicked, use the "+" operator with the two numbers 
 // to perform the calculation, then set the new display number equal to the output of operate(). 
 
+// now need to work on completing the chaining of calculations
+
+// calcVar is an object that stores the operator and first integer from when 
+// the user clicks an operator. This is then to be used in the "=" part of the switch
+// statement. An idea now is to make the plus minus multiply and divide cases all operate
+// like the equals case so that I'm able to chain the calculations. 
+
 let calcVar = {};
 
 performOperatorCalc = (e) => {
