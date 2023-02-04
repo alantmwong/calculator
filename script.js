@@ -44,11 +44,11 @@ operate = (operator, firstNumber, secondNumber) => {
 updateNumberInDisplay = (e) => {
     
     if (e.target.textContent > 0) {
-        if (displayContent.textContent == 0) {
+        if (displayContent.textContent == 0) { // to clear the original zero
             displayContent.textContent = "";
             displayContent.textContent = e.target.textContent;
             return;
-        }
+        }  
         displayContent.textContent += e.target.textContent;
     }
     
@@ -62,6 +62,7 @@ deleteInDisplay = (e) => {
         case "AC": 
             displayContent.textContent = "";
             displayContent.textContent = 0;
+            calcVar.firstInt = "";
             break;
 
         case "DELETE":
@@ -90,7 +91,11 @@ deleteInDisplay = (e) => {
 // statement. An idea now is to make the plus minus multiply and divide cases all operate
 // like the equals case so that I'm able to chain the calculations. 
 
-let calcVar = {};
+let calcVar = {
+    firstInt: "",
+    operator: "",
+    secondInt: "",
+};
 
 performOperatorCalc = (e) => {
     switch (e.target.textContent) {
@@ -101,11 +106,11 @@ performOperatorCalc = (e) => {
             calcVar.firstInt = displayContent.textContent;
             calcVar.operator = e.target.textContent;
             displayContent.textContent = 0;
+            console.log(calcVar);
             break;
         case "=": 
             let answer = operate(calcVar.operator, parseInt(calcVar.firstInt), 
                                 parseInt(displayContent.textContent));
-            console.log(answer);
             displayContent.textContent = answer;
             break;
     }
