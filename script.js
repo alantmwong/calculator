@@ -107,6 +107,7 @@ performOperatorCalc = (e) => {
                                 parseInt(displayContent.textContent));
             console.log(answer);
             displayContent.textContent = answer;
+            break;
     }
 
 }
