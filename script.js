@@ -63,6 +63,8 @@ deleteInDisplay = (e) => {
             displayContent.textContent = "";
             displayContent.textContent = 0;
             calcVar.firstInt = "";
+            calcVar.operator = "";
+            calcVar.secondInt = "";
             break;
 
         case "DELETE":
