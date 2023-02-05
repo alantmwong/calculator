@@ -42,13 +42,17 @@ operate = (operator, firstNumber, secondNumber) => {
 // Whenever a number is pressed, it will add the number to the display - i.e. 
 // displayContent. 
 updateNumberInDisplay = (e) => {
-    
-    if (e.target.textContent > 0) {
+
+    if (e.target.textContent >= 0) {
         if (displayContent.textContent == 0) { // to clear the original zero
             displayContent.textContent = "";
             displayContent.textContent = e.target.textContent;
             return;
-        }  
+        }
+        
+        if (calcVar.answer != "") {
+            displayContent.textContent = "";
+        }
         displayContent.textContent += e.target.textContent;
     }
     
@@ -64,7 +68,8 @@ deleteInDisplay = (e) => {
             displayContent.textContent = 0;
             calcVar.firstInt = "";
             calcVar.operator = "";
-            calcVar.secondInt = "";
+            calcVar.answer = "";
+
             break;
 
         case "DELETE":
@@ -96,7 +101,7 @@ deleteInDisplay = (e) => {
 let calcVar = {
     firstInt: "",
     operator: "",
-    secondInt: "",
+    answer: "",
 };
 
 performOperatorCalc = (e) => {
@@ -105,15 +110,22 @@ performOperatorCalc = (e) => {
         case "×":
         case "−":
         case "÷":
+            if (calcVar.operator != "") {
+                calcVar.answer = operate(calcVar.operator, parseInt(calcVar.firstInt),
+                                    parseInt(displayContent.textContent));
+                displayContent.textContent = calcVar.answer;
+            }
             calcVar.firstInt = displayContent.textContent;
             calcVar.operator = e.target.textContent;
-            displayContent.textContent = 0;
-            console.log(calcVar);
+            if (calcVar.answer == "") {
+                displayContent.textContent = 0;
+            }
             break;
         case "=": 
-            let answer = operate(calcVar.operator, parseInt(calcVar.firstInt), 
+            calcVar.answer = operate(calcVar.operator, parseInt(calcVar.firstInt), 
                                 parseInt(displayContent.textContent));
-            displayContent.textContent = answer;
+            displayContent.textContent = calcVar.answer;
+            calcVar.operator = "";
             break;
     }
 
